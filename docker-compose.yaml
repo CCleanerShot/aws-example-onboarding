@@ -1,0 +1,14 @@
+services:
+  aws-iam-onboarding:
+    build:
+      context: .
+      args:
+        - ORIGIN=${ORIGIN}
+        - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+        - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+        - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
+        - SSO_START_URL=${SSO_START_URL}
+        - SSO_REGION=${SSO_REGION}
+    image: ${IMAGE}
+    ports:
+      - "80:5050"

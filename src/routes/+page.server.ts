@@ -1,15 +1,7 @@
-import {
-    GROUP_ADMINISTRATORS_ID,
-    GROUP_DEVELOPERS_ID,
-    IDENTITY_STORE_ID,
-} from "$env/static/private";
-import {
-    CreateGroupMembershipCommand,
-    CreateUserCommand,
-    Identitystore,
-} from "@aws-sdk/client-identitystore";
 import { utility } from "$lib/utility";
-import type { Actions } from "@sveltejs/kit";
+import { type Actions } from "@sveltejs/kit";
+import { GROUP_ADMINISTRATORS_ID, GROUP_DEVELOPERS_ID, IDENTITY_STORE_ID } from "$env/static/private";
+import { CreateGroupMembershipCommand, CreateUserCommand, Identitystore } from "@aws-sdk/client-identitystore";
 
 const client = new Identitystore({ apiVersion: "v2", region: "us-east-1" });
 
@@ -39,9 +31,7 @@ export const actions = {
                 GivenName: `${firstName} ${lastName}`,
                 FamilyName: `${firstName} ${lastName}`,
             },
-            Emails: [
-                { Primary: true, Type: "string", Value: email.toString() },
-            ],
+            Emails: [{ Primary: true, Type: "string", Value: email.toString() }],
         });
 
         const responseUser = await client.send(createUser);
