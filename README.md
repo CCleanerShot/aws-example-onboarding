@@ -1,6 +1,4 @@
-This is a quick demo for streamlining the process of creating AWS IAM Identity Center users. For usage, it is meant to be given to internal users as an onboarding process. 
-Originally, the "form" was supposed to be just a Google Form + backend process, but due to GCP's insanity, I opted to just create a basic page + basic session auth.
-
+This is a quick demo for streamlining the process of creating AWS IAM Identity Center users. For usage, it is meant to be given to internal users as an onboarding process.
 # Prerequisites
 For reproducing the demo, you will need the following:
 
